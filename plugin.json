@@ -1,0 +1,17 @@
+{
+  "id": "ai_summary",
+  "name": "AI 总结",
+  "version": "0.1.0",
+  "api_version": 1,
+  "app_requires": ">=0.1,<0.3",
+  "description": "将转写与 PPT 文本整理为结构化课程总结，并提供可选视觉 OCR 能力。",
+  "requires": [
+    "processing"
+  ],
+  "python_requires": [],
+  "execution": "in_process",
+  "entry": "plugin.py",
+  "route_prefix": null,
+  "rpc_api_version": null,
+  "rpc_permissions": []
+}
