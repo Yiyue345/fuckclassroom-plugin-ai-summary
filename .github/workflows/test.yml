@@ -33,6 +33,14 @@ jobs:
           assert SpecifierSet(data["app_requires"]).contains(Version("0.2.0.dev0"), prereleases=True)
       - name: Check Python syntax
         run: python -m compileall -q __init__.py plugin.py client.py errors.py routes.py services.py worker.py scripts/build_registry_artifact.py
+
+      - name: Check OCR proxy runtime imports
+        shell: python
+        run: |
+          from pathlib import Path
+          source = Path("services.py").read_text(encoding="utf-8")
+          assert "import base64" in source
+          assert "base64.b64encode" in source
       - name: Check plugin boundaries
         shell: bash
         run: |
